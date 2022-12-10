@@ -1,0 +1,8 @@
+# if you dont want to spread it out
+
+{% for id, car in car_data.items()%}
+
+<h1>current cars: {{id}}</h1>
+<p>{{car['name']}}</p>
+
+{% endfor %}
