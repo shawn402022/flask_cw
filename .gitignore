@@ -1,3 +1,5 @@
+#virtualenv\Scripts\activate
+
 virtualenv
 .env
 

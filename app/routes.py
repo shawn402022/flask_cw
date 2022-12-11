@@ -1,5 +1,6 @@
 from app import app
 from flask import render_template
+from app.models import Post
 
 user_data = { 
     'hamzah':{
@@ -67,3 +68,16 @@ def display_cars():
 @app.route('/cars/cars')
 def display_car_id():
     return render_template('cars2.html.j2', car_data=car_data)
+
+@app.route('/posts')
+def posts():
+    all_posts =Post.query.all()
+    return render_template('posts.html', posts=all_posts)
+
+#Create a dynamic route that allos us
+#to get a singple post, based on it's id
+
+@app.route('/post/<id>')
+def post_by_id(id):
+    post = Post.query.get(int(id))
+    return render_template('post-single.html', post=post)
