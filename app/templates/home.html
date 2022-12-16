@@ -4,6 +4,10 @@
 
 {% block content %}
 <h1>Home</h1>
-<p>This is the ome page</p>
+{% if user.is_authenticated%}
+<p>Welcome to our app {{ user.username }}</p>
+{% else %}
+<p>Please <a href="{{ url_for('auth.login') }}">Login</a></p>
+{% endif %}
 {% endblock content %}
     
